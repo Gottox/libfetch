@@ -1260,6 +1260,10 @@ fetch_read(conn_t *conn, char *buf, size_t len)
 				fetch_syserr();
 				return (-1);
 			}
+#ifdef WITH_SSL
+			if (conn->ssl && SSL_pending(conn->ssl))
+				break;
+#endif
 			errno = 0;
 #ifdef WITH_SSL
 			if (conn->ssl && SSL_pending(conn->ssl))
