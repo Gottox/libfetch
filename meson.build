@@ -58,8 +58,8 @@ foreach prot : [ 'ftp', 'http' ]
 endforeach
 
 library('fetch',
-  install: not subproject,
   source + header,
   c_args: build_args,
-  dependencies: dependencies
+  dependencies: dependencies,
+  install: not subproject,
 )
