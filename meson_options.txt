@@ -1,0 +1,2 @@
+option('openssl', type : 'boolean')
+option('inet6', type : 'boolean')
